@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Load the signup layout when the button is clicked
-                setContentView(R.layout.activity_create);
+                setContentView(R.layout.activity_room);
 
             }
         });

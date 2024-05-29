@@ -21,7 +21,7 @@ public class activity_login extends AppCompatActivity {
         // 로그인 버튼 클릭시, 다음 페이지로 이동
         login.setOnClickListener(v -> {
             // 다음 화면으로 이동하는 Intent 생성
-            Intent intent = new Intent(this, activity_create.class); // 다음 화면의 클래스 이름으로 변경 필요
+            Intent intent = new Intent(this, activity_menu.class); // 다음 화면의 클래스 이름으로 변경 필요
             startActivity(intent); // Intent를 사용하여 다음 화면으로 이동
         });
         // 회원가입 버튼
