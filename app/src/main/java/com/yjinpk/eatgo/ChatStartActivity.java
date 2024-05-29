@@ -29,14 +29,14 @@ public class ChatStartActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start);
-
+        setContentView(R.layout.activity_make_party);
+//from.
         user_chat = (EditText) findViewById(R.id.user_chat);
         user_edit = (EditText) findViewById(R.id.user_edit);
         user_next = (Button) findViewById(R.id.user_next);
-        chat_list = (ListView) findViewById(R.id.chat_list);
+        //chat_list = (ListView) findViewById(R.id.chat_list);
 
-        user_next.setOnClickListener(new View.OnClickListener() {
+        user_next.setOnClickListener(new View.OnClickListener() { //클릭하면 user_chat, user_edit받아서 채팅창만듦
             @Override
             public void onClick(View v) {
                 if (user_edit.getText().toString().equals("") || user_chat.getText().toString().equals(""))
@@ -49,11 +49,11 @@ public class ChatStartActivity extends AppCompatActivity {
             }
         });
 
-        showChatList();
-
+//        showChatList();
+//여기 위에서 문제 발생
     }
 
-    private void showChatList() {
+    private void showChatList() {  //채팅방의 list를 보여줌.
         // 리스트 어댑터 생성 및 세팅
         final ArrayAdapter<String> adapter
 
