@@ -1,13 +1,10 @@
 package com.example.mobile_programming_eatgo;
 
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,9 +21,10 @@ public class MainActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Load the signup layout when the button is clicked
-                setContentView(R.layout.activity_room);
-
+                // Load the room layout when the button is clicked
+                // Change this to start activity_menu
+                Intent intent = new Intent(MainActivity.this, activity_menu.class);
+                startActivity(intent);
             }
         });
 
@@ -57,6 +55,3 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
-
-
-

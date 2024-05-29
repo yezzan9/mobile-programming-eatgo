@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,29 +6,33 @@
 
     <!-- Toolbar with icons -->
     <RelativeLayout
+        android:layout_margin="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp">
 
         <ImageView
             android:id="@+id/menuIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/logo" />
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/menu" />
 
         <ImageView
             android:id="@+id/notificationIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_alignParentEnd="true"
-            android:src="@drawable/logo" />
+            android:src="@drawable/alarm"
+            android:scaleType="centerInside" />
 
         <ImageView
             android:id="@+id/smileicon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_centerInParent="true"
-            android:src="@drawable/logo" />
+            android:src="@drawable/logo"
+            android:scaleType="centerInside" />
     </RelativeLayout>
 
     <!-- Delivery Status -->
@@ -47,6 +50,7 @@
     <!-- Title -->
     <TextView
         android:id="@+id/title"
+        android:layout_margin="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/deliveryStatus"
@@ -74,6 +78,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="16dp"
-        android:src="@drawable/logo"
+        android:src="@drawable/plus"
         android:backgroundTint="@color/orange" />
 </RelativeLayout>
