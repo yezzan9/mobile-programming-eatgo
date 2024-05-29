@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "900582153562",
+    "firebase_url": "https://mobileprogramming-62ee5-default-rtdb.firebaseio.com",
+    "project_id": "mobileprogramming-62ee5",
+    "storage_bucket": "mobileprogramming-62ee5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:900582153562:android:2751534bfb0419de5f2763",
+        "android_client_info": {
+          "package_name": "com.example.my240529"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "900582153562-3mt7a392de74f9383ijqsov6id4egro5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxeqORukmMXyXtRYJSTTr1rdDxUpu7Wlc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "900582153562-3mt7a392de74f9383ijqsov6id4egro5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:900582153562:android:27dbe8b1142508a45f2763",
+        "android_client_info": {
+          "package_name": "com.example.my2405292"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "900582153562-3mt7a392de74f9383ijqsov6id4egro5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxeqORukmMXyXtRYJSTTr1rdDxUpu7Wlc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "900582153562-3mt7a392de74f9383ijqsov6id4egro5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:900582153562:android:3987fe07c888851e5f2763",
+        "android_client_info": {
+          "package_name": "com.yjinpk.eatgo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "900582153562-3mt7a392de74f9383ijqsov6id4egro5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxeqORukmMXyXtRYJSTTr1rdDxUpu7Wlc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "900582153562-3mt7a392de74f9383ijqsov6id4egro5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
