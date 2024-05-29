@@ -1,19 +1,70 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:padding="16dp">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/logo"
+        android:layout_gravity="center"
+        android:paddingBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/store_name"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:hint="가게 이름"
+        android:padding="8dp"
+        android:background="@android:drawable/edit_text"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Spinner
+        android:id="@+id/menu_selection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:background="@android:drawable/edit_text"
+        android:entries="@array/menu_items"/>
+
+    <EditText
+        android:id="@+id/min_order_amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="최소 주문 금액"
+        android:inputType="numberDecimal"
+        android:padding="8dp"
+        android:background="@android:drawable/edit_text"/>
+
+    <EditText
+        android:id="@+id/current_order_amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="현재 주문 금액"
+        android:inputType="numberDecimal"
+        android:padding="8dp"
+        android:background="@android:drawable/edit_text"/>
+
+    <EditText
+        android:id="@+id/closing_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="마감 시간"
+        android:inputType="time"
+        android:padding="8dp"
+        android:background="@android:drawable/edit_text"/>
+
+    <Button
+        android:id="@+id/create_delivery_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="배달팟 만들기"
+        android:background="@color/button_color"
+        android:textColor="@color/button_text_color"
+        android:padding="16dp"
+        android:layout_marginTop="16dp"/>
+
+</LinearLayout>
