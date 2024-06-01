@@ -2,92 +2,53 @@ package com.yjinpk.eatgo;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class ChatStartActivity extends AppCompatActivity {
 
-    private EditText user_chat, user_edit;
+    private EditText user_chat, user_edit, location_edit;
     private Button user_next;
-    private ListView chat_list;
 
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-    private DatabaseReference databaseReference = firebaseDatabase.getReference();
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_party);
-//from.
-        user_chat = (EditText) findViewById(R.id.user_chat);
-        user_edit = (EditText) findViewById(R.id.user_edit);
-        user_next = (Button) findViewById(R.id.user_next);
-        //chat_list = (ListView) findViewById(R.id.chat_list);
 
-        user_next.setOnClickListener(new View.OnClickListener() { //클릭하면 user_chat, user_edit받아서 채팅창만듦
+        user_chat = findViewById(R.id.user_chat);
+        user_edit = findViewById(R.id.user_edit);
+        location_edit = findViewById(R.id.location_edit);
+        user_next = findViewById(R.id.user_next);
+
+        user_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (user_edit.getText().toString().equals("") || user_chat.getText().toString().equals(""))
+                String chatName = user_chat.getText().toString();
+                String userName = user_edit.getText().toString();
+                String location = location_edit.getText().toString();
+
+                if (chatName.isEmpty() || userName.isEmpty() || location.isEmpty())
                     return;
 
+                // Firebase에 채팅방 정보 저장
+                databaseReference = firebaseDatabase.getReference().child("chat").child(chatName);
+                databaseReference.child("location").setValue(location);
+
                 Intent intent = new Intent(ChatStartActivity.this, ChatActivity.class);
-                intent.putExtra("chatName", user_chat.getText().toString());
-                intent.putExtra("userName", user_edit.getText().toString());
+                intent.putExtra("chatName", chatName);
+                intent.putExtra("userName", userName);
+                intent.putExtra("location", location);
                 startActivity(intent);
             }
         });
-
-//        showChatList();
-//여기 위에서 문제 발생
-    }
-
-    private void showChatList() {  //채팅방의 list를 보여줌.
-        // 리스트 어댑터 생성 및 세팅
-        final ArrayAdapter<String> adapter
-
-                = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1);
-        chat_list.setAdapter(adapter);
-
-        // 데이터 받아오기 및 어댑터 데이터 추가 및 삭제 등..리스너 관리
-        databaseReference.child("chat").addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Log.e("LOG", "dataSnapshot.getKey() : " + dataSnapshot.getKey());
-                adapter.add(dataSnapshot.getKey());
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
     }
 }

@@ -49,34 +49,67 @@ public class PartyActivity extends AppCompatActivity {
         chat_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String chatName = (String) parent.getItemAtPosition(position);
+                String chatInfo = (String) parent.getItemAtPosition(position);
+                String chatName = chatInfo.split(" \\(")[0]; // CHAT_NAME만 추출
                 showUsernameDialog(chatName);
             }
         });
     }
 
     private void showChatList() {
-        final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.chat_item, R.id.chat_item_text);
         chat_list.setAdapter(adapter);
 
         databaseReference.child("chat").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Log.e("LOG", "dataSnapshot.getKey() : " + dataSnapshot.getKey());
-                adapter.add(dataSnapshot.getKey());
+                String chatName = dataSnapshot.getKey();
+                String location = dataSnapshot.child("location").getValue(String.class);
+                if (location != null) {
+                    String chatInfo = chatName + " (" + location + ")";
+                    adapter.add(chatInfo);
+                } else {
+                    adapter.add(chatName);
+                }
             }
 
             @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {}
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                String chatName = dataSnapshot.getKey();
+                String location = dataSnapshot.child("location").getValue(String.class);
+                String chatInfo = chatName + " (" + location + ")";
+                // 리스트에서 업데이트된 항목을 찾아서 변경
+                for (int i = 0; i < adapter.getCount(); i++) {
+                    String item = adapter.getItem(i);
+                    if (item != null && item.startsWith(chatName)) {
+                        adapter.remove(item);
+                        adapter.insert(chatInfo, i);
+                        break;
+                    }
+                }
+            }
 
             @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {}
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                String chatName = dataSnapshot.getKey();
+                for (int i = 0; i < adapter.getCount(); i++) {
+                    String item = adapter.getItem(i);
+                    if (item != null && item.startsWith(chatName)) {
+                        adapter.remove(item);
+                        break;
+                    }
+                }
+            }
 
             @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {}
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+                // Do nothing
+            }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {}
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e("LOG", "Database error: " + databaseError.getMessage());
+            }
         });
     }
 

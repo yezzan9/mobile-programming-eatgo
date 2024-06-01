@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // Initially load the login layout
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login2);
 
         Button loginButton = findViewById(R.id.loginbutton);
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         // Load the login layout when the back button is clicked
-                        setContentView(R.layout.activity_login);
+                        setContentView(R.layout.activity_login2);
 
                         // Re-attach the click listener to the sign-in button
                         attachCommonListeners();
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             // Load the login layout when the back button is clicked
-                            setContentView(R.layout.activity_login);
+                            setContentView(R.layout.activity_login2);
 
                             // Re-attach the click listener to the sign-in button
                             attachCommonListeners();

@@ -28,7 +28,9 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:background="@android:drawable/edit_text"
-        android:entries="@array/menu_items"/>
+        android:entries="@array/menu_items"
+        android:textColor="#000000"
+        />
 
     <EditText
         android:id="@+id/min_order_amount"
@@ -62,9 +64,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="배달팟 만들기"
-        android:background="@color/button_color"
+        android:backgroundTint="@color/button_color"
         android:textColor="@color/button_text_color"
         android:padding="16dp"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+
+        />
 
 </LinearLayout>
