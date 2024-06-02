@@ -21,7 +21,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="메뉴 이름"
-        android:padding="8dp" />
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        />
 
     <EditText
         android:id="@+id/menu_price_edit_text"
@@ -30,7 +32,9 @@
         android:layout_marginTop="10dp"
         android:hint="메뉴 가격"
         android:inputType="number"
-        android:padding="8dp" />
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        />
 
     <Button
         android:id="@+id/add_order_button"
